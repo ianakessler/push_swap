@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/10 17:21:59 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:44:40 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int main(int argc, char **argv)
 {
-    if (!is_all_num(argc, argv)) return (0);
+    if (!is_all_num(argc, argv) || !check_doubles(argc, argv) || !check_int_max(argc, argv))
+        return (0);
+    write(1, "All params ok\n", 15);
 }

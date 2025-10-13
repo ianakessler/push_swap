@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:26:55 by iaratang          #+#    #+#             */
-/*   Updated: 2025/08/20 13:27:20 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:35:13 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char	*ft_strdup(const char *s1);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 size_t	ft_strlen(const char *c);
+long	ft_atol(const char *str);
 int		ft_lstsize(t_list *lst);
 int		ft_atoi(const char *c);
 int		ft_isalpha(int c);

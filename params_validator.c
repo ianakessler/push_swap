@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/13 17:54:02 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:04:32 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int	is_all_num(int argc, char **argv)
 	{
 		current_value = ft_atoi(argv[i]);
 		if (current_value == 0 && !is_all_digit(argv[i]))
+		{
+			ft_putstr_fd("Error\n", 2);
+			return (0);
+		}
+		if (current_value != 0 && !is_all_digit(argv[i]))
 		{
 			ft_putstr_fd("Error\n", 2);
 			return (0);
@@ -80,7 +85,7 @@ int	is_all_digit(char	*arg)
 
 	while(arg[i])
 	{
-		if(arg[i] == '-' || arg[i] == '+')
+		if(arg[0] == '-' || arg[0] == '+')
 			i++;
 		if (!ft_isdigit(arg[i]))
 			return (0);

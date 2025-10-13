@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/13 14:42:51 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/13 20:36:51 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,18 @@ typedef struct s_stack
     int value;
     struct  s_stack *next;
     struct s_stack  *prev;
-    
+
 }   t_stack;
 
+//parse-params
 int is_all_num(int argc, char **argv);
 int check_doubles(int argc, char **argv);
 int check_int_max(int argc, char **argv);
+int	is_ordenated(int argc, char **argv);
+
+//stack_manipulation
+t_stack	*create_node(int	value);
+void	add_node_front(t_stack *node, t_stack **stack);
+void	fill_stack(int argc, char	**argv, t_stack **stack);
 
 #endif

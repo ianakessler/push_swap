@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   fill_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 18:40:10 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/13 18:24:18 by iaratang         ###   ########.fr       */
+/*   Created: 2025/10/13 20:29:56 by iaratang          #+#    #+#             */
+/*   Updated: 2025/10/13 20:53:11 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include "push_swap.h"
+
+void	fill_stack(int argc, char	**argv, t_stack **stack)
 {
 	int		i;
-	int		signal;
-	long	res;
+	t_stack	*node;
 
-	res = 0;
-	i = 0;
-	signal = 1;
-	while (str[i])
+	i = 1;
+	while (i < argc)
 	{
-		while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-			i++;
-		if (str[i] == '-' || str[i] == '+')
-		{
-			if (str[i] == '-')
-				signal = -1;
-			i++;
-		}
-		while (str[i] >= '0' && str[i] <= '9')
-		{
-			res = res * 10 + (str[i] - '0');
-			i++;
-		}
-		return (res * signal);
+		node = create_node(ft_atoi(argv[i]));
+		add_node_front(node, stack);
+		i++;
+		free(node);
 	}
-	return (0);
 }

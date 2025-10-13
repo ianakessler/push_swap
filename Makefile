@@ -10,6 +10,9 @@ RM = rm -f
 # Lista de arquivos fonte .c do seu projeto
 SRCS =	push_swap.c\
 		params_validator.c\
+		create_node.c\
+		add_node_front.c\
+		fill_stack.c\
 
 # Correção 1: Removido o espaço na conversão de .c para .o
 OBJS = $(SRCS:.c=.o)

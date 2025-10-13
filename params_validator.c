@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/13 18:04:32 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/13 18:59:31 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,33 @@ int	check_int_max(int argc, char **argv)
 int	is_all_digit(char	*arg)
 {
 	int	i;
-	i = 0;
 
-	while(arg[i])
+	i = 0;
+	while (arg[i])
 	{
-		if(arg[0] == '-' || arg[0] == '+')
+		if (arg[0] == '-' || arg[0] == '+')
 			i++;
 		if (!ft_isdigit(arg[i]))
 			return (0);
 		i++;
 	}
 	return (1);
+}
+
+int	is_ordenated(int argc, char **argv)
+{
+	int	i;
+	int	sorted;
+
+	sorted = 1;
+	i = 1;
+	while (i < argc - 1)
+	{
+		if(ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
+		{
+			sorted = 0;
+		}
+		i++;
+	}
+	return (sorted);
 }

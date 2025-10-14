@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/13 18:59:31 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:24:09 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ int	is_all_num(int argc, char **argv)
 		current_value = ft_atoi(argv[i]);
 		if (current_value == 0 && !is_all_digit(argv[i]))
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error 1\n", 2);
 			return (0);
 		}
 		if (current_value != 0 && !is_all_digit(argv[i]))
 		{
-			ft_putstr_fd("Error\n", 2);
+			printf("current value = %i", current_value);
+			ft_putstr_fd("Error 2\n", 2);
 			return (0);
 		}
 		i++;
@@ -51,7 +52,7 @@ int	check_doubles(int argc, char **argv)
 		{
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 			{
-				ft_putstr_fd("Error\n", 2);
+				ft_putstr_fd("Error 3\n", 2);
 				return (0);
 			}
 			j++;
@@ -70,7 +71,7 @@ int	check_int_max(int argc, char **argv)
 	{
 		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
 		{
-			ft_putstr_fd("Error\n", 2);
+			ft_putstr_fd("Error 4\n", 2);
 			return (0);
 		}
 		i++;
@@ -83,10 +84,14 @@ int	is_all_digit(char	*arg)
 	int	i;
 
 	i = 0;
+	if (arg[0] == '-' || arg[0] == '+')
+	{
+		if (arg[i + 1] == '\0')
+			return (0);
+		i++;
+	}
 	while (arg[i])
 	{
-		if (arg[0] == '-' || arg[0] == '+')
-			i++;
 		if (!ft_isdigit(arg[i]))
 			return (0);
 		i++;

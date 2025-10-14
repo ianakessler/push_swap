@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_node_front.c                                   :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 19:59:09 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/14 18:01:26 by iaratang         ###   ########.fr       */
+/*   Created: 2025/10/14 18:23:29 by iaratang          #+#    #+#             */
+/*   Updated: 2025/10/14 18:56:29 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_node_front(t_stack *node, t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-	if (!node || !stack)
-		return ;
-	node->next = *stack;
-	if (*stack != NULL)
-		(*stack)->prev = node;
-	*stack = node;
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	free(*stack);
+	*stack = NULL;
 }

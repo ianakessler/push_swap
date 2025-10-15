@@ -6,19 +6,19 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:29:56 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/14 18:22:07 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/15 16:59:39 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fill_stack(int argc, char	**argv, t_stack **stack)
+void	fill_stack(int argc, char	**argv, t_stack **stack, int s)
 {
 	int		i;
 	int		current_value;
 	t_stack	*node;
 
-	i = 1;
+	i = s;
 	while (i < argc)
 	{
 		current_value = ft_atoi(argv[i]);

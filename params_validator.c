@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/14 17:24:09 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/15 16:58:19 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	is_all_digit(char	*arg);
 
-int	is_all_num(int argc, char **argv)
+int	is_all_num(int argc, char **argv, int s)
 {
 	int	i;
 	int	current_value;
 
-	i = 1;
+	i = s;
 	while (i < argc)
 	{
 		current_value = ft_atoi(argv[i]);
@@ -39,12 +39,12 @@ int	is_all_num(int argc, char **argv)
 	return (1);
 }
 
-int	check_doubles(int argc, char **argv)
+int	check_doubles(int argc, char **argv, int s)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = s;
 	while (i < argc)
 	{
 		j = i + 1;
@@ -62,11 +62,11 @@ int	check_doubles(int argc, char **argv)
 	return (1);
 }
 
-int	check_int_max(int argc, char **argv)
+int	check_int_max(int argc, char **argv, int s)
 {
 	int	i;
 
-	i = 1;
+	i = s;
 	while (i < argc)
 	{
 		if (ft_atol(argv[i]) > INT_MAX || ft_atol(argv[i]) < INT_MIN)
@@ -99,13 +99,13 @@ int	is_all_digit(char	*arg)
 	return (1);
 }
 
-int	is_ordenated(int argc, char **argv)
+int	is_ordenated(int argc, char **argv, int s)
 {
 	int	i;
 	int	sorted;
 
 	sorted = 1;
-	i = 1;
+	i = s;
 	while (i < argc - 1)
 	{
 		if(ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
@@ -114,5 +114,7 @@ int	is_ordenated(int argc, char **argv)
 		}
 		i++;
 	}
+	if (sorted)
+		ft_putstr_fd("Sorted", 2);
 	return (sorted);
 }

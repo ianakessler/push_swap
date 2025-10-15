@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/14 18:57:53 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:00:02 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,37 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 
 	stack_a = NULL;
-	// if (argc == 2) //TODO: tratar single argument direito;
-	// {
-	// 	argv = ft_split(argv[1], 32);
-	// }
 
-	if (!is_all_num(argc, argv) || !check_doubles(argc, argv)
-		|| !check_int_max(argc, argv))
-		return (0);
-	write(1, "All params ok\n", 15);
-	if (is_ordenated(argc, argv))
+	if (argc == 2) //TODO: tratar single argument direito;
 	{
-		ft_putstr_fd("Sorted", 2);
-		return (0);
+		char	**splited;
+		splited = ft_split(argv[1], 32);
+		int i = 0;
+		while (splited[i])
+			i++;
+		printf("i = %i\nargc = %i\n", i, argc);
+		if (!is_all_num(i, splited, 0) || !check_doubles(i, splited, 0) || !check_int_max(i, splited, 0))
+			return (0);
+		ft_putstr_fd("All params ok\n", 1);
+		if (is_ordenated(i, splited, 0))
+			return (0);
+		fill_stack(i, splited, &stack_a, 0);
+		display_list(stack_a);
+		free_stack(&stack_a);
 	}
-	fill_stack(argc, argv, &stack_a);
-	display_list(stack_a);
-	free_stack(&stack_a);
+	else
+	{
+		if (!is_all_num(argc, argv, 1) || !check_doubles(argc, argv, 1)
+			|| !check_int_max(argc, argv, 1))
+			return (0);
+		ft_putstr_fd("All params ok", 1);
+		if (is_ordenated(argc, argv, 1))
+			return (0);
+
+		fill_stack(argc, argv, &stack_a, 1);
+		display_list(stack_a);
+		free_stack(&stack_a);
+	}
 }
 
 void    display_list(t_stack *stack)

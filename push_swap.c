@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/15 17:00:02 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/15 18:09:57 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,20 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 
+
+
 	if (argc == 2) //TODO: tratar single argument direito;
 	{
+		if(!argv[1][0])
+		{
+			ft_putstr_fd("Error", 2);
+			return (0);
+		}
 		char	**splited;
 		splited = ft_split(argv[1], 32);
 		int i = 0;
 		while (splited[i])
 			i++;
-		printf("i = %i\nargc = %i\n", i, argc);
 		if (!is_all_num(i, splited, 0) || !check_doubles(i, splited, 0) || !check_int_max(i, splited, 0))
 			return (0);
 		ft_putstr_fd("All params ok\n", 1);

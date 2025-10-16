@@ -1,39 +1,39 @@
 # Push_Swap
 
-## 📖 Sobre o Projeto
+## 📖 About the Project
 
-Este projeto, `push_swap`, é um algoritmo de ordenação. O objetivo é ordenar uma pilha de números inteiros com o menor número de operações possível, utilizando um conjunto limitado de instruções e uma segunda pilha auxiliar.
+This project, `push_swap`, is a sorting algorithm. The goal is to sort a stack of integers using the smallest possible number of operations, with a limited set of instructions and a second auxiliary stack.
 
 ---
 
-## 🚀 Como Executar
+##  How to Run
 
-Siga os passos abaixo para compilar e executar o projeto em seu ambiente local.
+Follow the steps below to compile and run the project in your local environment.
 
-### ✅ Pré-requisitos
+### ✅ Prerequisites
 
-Antes de começar, você precisará ter as seguintes ferramentas instaladas em sua máquina:
-* **Git:** Para clonar o repositório.
-* **Make:** Para compilar o projeto a partir do Makefile.
-* **GCC (ou outro compilador C):** Para compilar o código-fonte.
+Before you begin, you will need to have the following tools installed on your machine:
+* **Git:** To clone the repository.
+* **Make:** To compile the project from the Makefile.
+* **GCC (or another C compiler):** To compile the source code.
 
-### ⚙️ Instalação e Compilação
+### ⚙️ Installation and Compilation
 
-1.  **Clone o repositório:**
-    Abra seu terminal e execute o comando abaixo para clonar o repositório. Substitua `<nome_da_pasta>` pelo nome que preferir para o diretório do projeto.
-
-    ```bash
-    git clone [https://github.com/ianakessler/push_swap.git](https://github.com/ianakessler/push_swap.git) <nome_da_pasta>
-    ```
-
-2.  **Acesse o diretório do projeto:**
+1.  **Clone the repository:**
+    Open your terminal and run the command below to clone the repository. Replace `<folder_name>` with your preferred name for the project directory.
 
     ```bash
-    cd <nome_da_pasta>
+    git clone [https://github.com/ianakessler/push_swap.git](https://github.com/ianakessler/push_swap.git) <folder_name>
     ```
 
-3.  **Compile o projeto:**
-    Dentro da pasta do projeto, execute o comando `make`. Isso irá compilar os arquivos-fonte e gerar o executável `push_swap`.
+2.  **Navigate to the project directory:**
+
+    ```bash
+    cd <folder_name>
+    ```
+
+3.  **Compile the project:**
+    Inside the project folder, run the `make` command. This will compile the source files and generate the `push_swap` executable.
 
     ```bash
     make
@@ -41,11 +41,11 @@ Antes de começar, você precisará ter as seguintes ferramentas instaladas em s
 
 ---
 
-## ▶️ Exemplo de Uso
+## ▶️ Usage Example
 
-Após a compilação, você pode executar o programa passando uma lista de números inteiros como argumentos. Os números devem ser separados por espaços.
+After compiling, you can run the program by passing a list of integers as arguments. The numbers must be separated by spaces.
 
-Por exemplo:
+For example:
 
 ```bash
 ./push_swap 10 -10 3 6 2 99 -2

@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:22:31 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/15 18:26:47 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 18:39:18 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,27 @@
 t_stack	*return_last_node(t_stack *stack)
 {
 	t_stack	*tmp;
+
 	if (!stack)
 		return (NULL);
 	tmp = stack;
-	while (tmp)
+	while (tmp->next)
 		tmp = tmp->next;
 	return (tmp);
+}
+
+
+int	stack_size(t_stack *stack)
+{
+	t_stack	*tmp;
+	int		i;
+
+	tmp = stack;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return i;
 }

@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/15 18:09:57 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 18:19:55 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,26 @@ int	main(int argc, char **argv)
 		if (is_ordenated(i, splited, 0))
 			return (0);
 		fill_stack(i, splited, &stack_a, 0);
+		printf("Display before rotate\n");
+		display_list(stack_a);
+		reverse_rotate_a(&stack_a);
+		printf("display after rotate\n");
 		display_list(stack_a);
 		free_stack(&stack_a);
+		free(splited);
 	}
 	else
 	{
 		if (!is_all_num(argc, argv, 1) || !check_doubles(argc, argv, 1)
 			|| !check_int_max(argc, argv, 1))
 			return (0);
-		ft_putstr_fd("All params ok", 1);
+		ft_putstr_fd("All params ok\n", 1);
 		if (is_ordenated(argc, argv, 1))
 			return (0);
 
 		fill_stack(argc, argv, &stack_a, 1);
+		display_list(stack_a);
+		rotate_a(&stack_a);
 		display_list(stack_a);
 		free_stack(&stack_a);
 	}

@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:22:32 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 19:58:19 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int	main(int argc, char **argv)
 		if (is_ordenated(i, splited, 0))
 			return (0);
 		fill_stack(i, splited, &stack_a, 0);
-		printf("Display before rotate\n");
-		display_list(stack_a);
-		reverse_rotate(&stack_a);
-		printf("display after rotate\n");
-		display_list(stack_a);
+		// printf("Display before rotate\n");
+		// display_list(stack_a);
+		call_rotate(stack_a, "rra");
+		// printf("display after rotate\n");
+		// display_list(stack_a);
 		free_stack(&stack_a);
 		free(splited);
 	}

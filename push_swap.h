@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:20:42 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 19:55:57 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@ void	reverse_rotate(t_stack **stack);
 //stack_utils
 t_stack	*return_last_node(t_stack *stack);
 int	stack_size(t_stack *stack);
+
+//caller_functions
+void	call_rotate(t_stack *stack, char *op);
 
 #endif

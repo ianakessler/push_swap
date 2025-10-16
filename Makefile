@@ -15,7 +15,7 @@ SRCS =	push_swap.c\
 		fill_stack.c\
 		free_stack.c\
 		stack_utils.c\
-		stack_operations.c\
+		rotate.c\
 
 # Correção 1: Removido o espaço na conversão de .c para .o
 OBJS = $(SRCS:.c=.o)

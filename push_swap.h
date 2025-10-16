@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 18:19:43 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 19:20:42 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ t_stack	*create_node(int value);
 void	add_node_front(t_stack *node, t_stack **stack);
 void	fill_stack(int argc, char	**argv, t_stack **stack, int s);
 void	free_stack(t_stack **stack);
-void	rotate_a(t_stack **stack);
-void	reverse_rotate_a(t_stack **stack);
+void	rotate(t_stack **stack);
+void	reverse_rotate(t_stack **stack);
 
 //stack_utils
 t_stack	*return_last_node(t_stack *stack);

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:25:02 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 18:38:54 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 19:20:29 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_stack **stack)
+void	rotate(t_stack **stack)
 {
 	t_stack	*last_node;
 	t_stack	*tmp;
-
 
 	last_node = return_last_node(*stack);
 	last_node->next = *stack;
@@ -27,7 +26,7 @@ void	rotate_a(t_stack **stack)
 	(*stack)->prev = NULL;
 }
 
-void	reverse_rotate_a(t_stack **stack)
+void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last_node;
 	t_stack	*tmp;

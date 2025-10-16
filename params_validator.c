@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 18:48:19 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/16 19:18:02 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	is_ordenated(int argc, char **argv, int s)
 	i = s;
 	while (i < argc - 1)
 	{
-		if(ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
+		if (ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
 		{
 			sorted = 0;
 		}

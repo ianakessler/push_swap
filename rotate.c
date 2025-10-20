@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:25:02 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:58:07 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:16:45 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ void	reverse_rotate(t_stack **stack)
 	(*stack)->prev = last_node;
 	last_node->next = *stack;
 	*stack = last_node;
+}
+
+void	rotate_both(t_stack *stack_a, t_stack *stack_b)
+{
+	rotate(&stack_a);
+	rotate(&stack_b);
+	ft_putstr_fd("rr\n", 1);
+}
+
+void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b)
+{
+	reverse_rotate(&stack_a);
+	reverse_rotate(&stack_b);
+	ft_putstr_fd("rrr", 1);
 }
 
 void	call_rotate(t_stack *stack, char *op)

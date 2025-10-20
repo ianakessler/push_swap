@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:55:57 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/20 18:30:37 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int is_all_num(int argc, char **argv, int s);
 int check_doubles(int argc, char **argv,int s);
 int check_int_max(int argc, char **argv, int s);
 int	is_ordenated(int argc, char **argv, int s);
+int	validate_single_arg(char **splited);
 
 //stack_manipulation
 t_stack	*create_node(int value);
@@ -40,6 +41,9 @@ void	fill_stack(int argc, char	**argv, t_stack **stack, int s);
 void	free_stack(t_stack **stack);
 void	rotate(t_stack **stack);
 void	reverse_rotate(t_stack **stack);
+void	swap(t_stack **stack);
+void	push_a(t_stack **stack_a, t_stack **stack_b);
+void	push_b(t_stack **stack_a, t_stack **stack_b);
 
 //stack_utils
 t_stack	*return_last_node(t_stack *stack);
@@ -47,5 +51,6 @@ int	stack_size(t_stack *stack);
 
 //caller_functions
 void	call_rotate(t_stack *stack, char *op);
+void	call_swap(t_stack *stack, char *op);
 
 #endif

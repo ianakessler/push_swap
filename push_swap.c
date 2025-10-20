@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:58:19 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/20 19:01:39 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,52 +17,56 @@ void    display_list(t_stack *stack);
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	t_stack *stack_b;
 
 	stack_a = NULL;
-
-
-
+	stack_b = NULL;
 	if (argc == 2) //TODO: tratar single argument direito;
 	{
-		if(!argv[1][0])
-		{
-			ft_putstr_fd("Error", 2);
-			return (0);
-		}
 		char	**splited;
+		int i;
+
 		splited = ft_split(argv[1], 32);
-		int i = 0;
-		while (splited[i])
-			i++;
-		if (!is_all_num(i, splited, 0) || !check_doubles(i, splited, 0) || !check_int_max(i, splited, 0))
-			return (0);
-		ft_putstr_fd("All params ok\n", 1);
-		if (is_ordenated(i, splited, 0))
+		i = validate_single_arg(splited);
+		if (i == 0)
 			return (0);
 		fill_stack(i, splited, &stack_a, 0);
-		// printf("Display before rotate\n");
-		// display_list(stack_a);
-		call_rotate(stack_a, "rra");
-		// printf("display after rotate\n");
-		// display_list(stack_a);
+		display_list(stack_a);
+		push_b(&stack_a, &stack_b);
+		display_list(stack_a);
 		free_stack(&stack_a);
-		free(splited);
 	}
 	else
 	{
-		if (!is_all_num(argc, argv, 1) || !check_doubles(argc, argv, 1)
-			|| !check_int_max(argc, argv, 1))
-			return (0);
-		ft_putstr_fd("All params ok\n", 1);
-		if (is_ordenated(argc, argv, 1))
-			return (0);
-
 		fill_stack(argc, argv, &stack_a, 1);
 		display_list(stack_a);
 		rotate(&stack_a);
 		display_list(stack_a);
 		free_stack(&stack_a);
 	}
+}
+
+int	validate_single_arg(char **splited)
+{
+	int	i;
+	i = 0;
+	while (splited[i])
+		i++;
+	if (!is_all_num(i, splited, 0) || !check_doubles(i, splited, 0) || !check_int_max(i, splited, 0))
+		return (0);
+	if (is_ordenated(i, splited, 0))
+		return (0);
+	return (i);
+}
+
+int	validate_mult_args(int argc, char **argv)
+{
+	if (!is_all_num(argc, argv, 1) || !check_doubles(argc, argv, 1)
+		|| !check_int_max(argc, argv, 1))
+		return (0);
+	if (is_ordenated(argc, argv, 1))
+		return (0);
+	return (1);
 }
 
 void    display_list(t_stack *stack)

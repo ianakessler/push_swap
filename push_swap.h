@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/20 18:30:37 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:10:14 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,13 @@ int	is_ordenated(int argc, char **argv, int s);
 int	validate_single_arg(char **splited);
 
 //stack_manipulation
-t_stack	*create_node(int value);
-void	add_node_front(t_stack *node, t_stack **stack);
 void	fill_stack(int argc, char	**argv, t_stack **stack, int s);
 void	free_stack(t_stack **stack);
 void	rotate(t_stack **stack);
 void	reverse_rotate(t_stack **stack);
 void	swap(t_stack **stack);
-void	push_a(t_stack **stack_a, t_stack **stack_b);
-void	push_b(t_stack **stack_a, t_stack **stack_b);
+void	push(t_stack **stack_a, t_stack **stack_b, char *op);
+
 
 //stack_utils
 t_stack	*return_last_node(t_stack *stack);

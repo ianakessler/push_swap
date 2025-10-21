@@ -6,13 +6,13 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/20 19:01:39 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:12:49 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    display_list(t_stack *stack);
+void    display_list(t_stack **stack);
 
 int	main(int argc, char **argv)
 {
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (argc == 2) //TODO: tratar single argument direito;
+	if (argc == 2)
 	{
 		char	**splited;
 		int i;
@@ -31,20 +31,15 @@ int	main(int argc, char **argv)
 		if (i == 0)
 			return (0);
 		fill_stack(i, splited, &stack_a, 0);
-		display_list(stack_a);
-		push_b(&stack_a, &stack_b);
-		display_list(stack_a);
 		free_stack(&stack_a);
 	}
 	else
 	{
 		fill_stack(argc, argv, &stack_a, 1);
-		display_list(stack_a);
-		rotate(&stack_a);
-		display_list(stack_a);
 		free_stack(&stack_a);
 	}
 }
+
 
 int	validate_single_arg(char **splited)
 {
@@ -69,12 +64,12 @@ int	validate_mult_args(int argc, char **argv)
 	return (1);
 }
 
-void    display_list(t_stack *stack)
+void    display_list(t_stack **stack)
 {
 	int i = 0;
 	t_stack	*tmp;
 
-	tmp = stack;
+	tmp = *stack;
 	while (tmp)
 	{
 		printf("Nó %d:\n", i);

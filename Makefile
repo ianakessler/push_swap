@@ -10,8 +10,6 @@ RM = rm -f
 # Lista de arquivos fonte .c do seu projeto
 SRCS =	push_swap.c\
 		params_validator.c\
-		create_node.c\
-		add_node_front.c\
 		fill_stack.c\
 		free_stack.c\
 		stack_utils.c\

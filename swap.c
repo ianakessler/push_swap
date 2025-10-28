@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:27:07 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/21 18:12:26 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:09:20 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ void	swap(t_stack **stack)
 	third->prev = first;
 }
 
-void	call_swap(t_stack *stack, char *op)
+void	call_swap(t_stack **stack, char *op)
 {
 	if (!ft_strncmp("sa", op, 2))
 	{
-		swap(&stack);
+		swap(stack);
 		ft_putstr_fd("sa\n", 1);
 	}
 	if (!ft_strncmp("sb", op, 2))
 	{
-		swap(&stack);
+		swap(stack);
 		ft_putstr_fd("sb\n", 1);
 	}
 }

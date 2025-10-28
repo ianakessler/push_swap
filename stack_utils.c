@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:22:31 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:12:13 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:15:18 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,19 @@ int	stack_size(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+int	is_stack_sorted(t_stack *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value < stack->next->value) // comparação invertida
+		{
+			printf("not sorted\n");
+			return (0);
+		}
+		stack = stack->next;
+	}
+	printf("sorted\n");
+	return (1);
 }

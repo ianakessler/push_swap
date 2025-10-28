@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/22 15:43:33 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:10:15 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 	else
 	{
 		fill_stack(argc, argv, &stack_a, 1);
+		display_list(&stack_a);
+		printf("-----------------------\n");
 		teste(stack_a, stack_b);
 		free_stack(&stack_a);
 	}
@@ -46,7 +48,8 @@ void	teste(t_stack *stack_a, t_stack *stack_b)
 {
 	push_b(&stack_b, &stack_a);
 	push_b(&stack_b, &stack_a);
-	push_b(&stack_b, &stack_a);
+	// call_swap(&stack_b, "sb");
+	is_stack_sorted(stack_b);
 	display_list(&stack_b);
 }
 
@@ -77,18 +80,18 @@ int	validate_mult_args(int argc, char **argv)
 void    display_list(t_stack **stack)
 {
 	int i = 0;
-	t_stack	*last;
+	t_stack	*tmp;
 
-	last = return_last_node(*stack);
-	while (last)
+	tmp = (*stack);
+	while (tmp)
 	{
 		printf("Nó %d:\n", i);
-		printf("\tEndereço do nó: %p\n", (void *)last);
-		printf("\tValor (value):  %i\n", last->value);
-		printf("\tAponta para (next): %p\n", (void *)last->next);
-		printf("\tAponta para (prev): %p\n", (void *)last->prev);
+		printf("\tEndereço do nó: %p\n", (void *)tmp);
+		printf("\tValor (value):  %i\n", tmp->value);
+		printf("\tAponta para (next): %p\n", (void *)tmp->next);
+		printf("\tAponta para (prev): %p\n", (void *)tmp->prev);
 		printf("--------------------------\n");
 		i++;
-		last = last->prev;
+		tmp = tmp->next;
 	}
 }

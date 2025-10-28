@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/22 15:15:49 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:09:34 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int	validate_single_arg(char **splited);
 //stack_manipulation
 void	fill_stack(int argc, char	**argv, t_stack **stack, int s);
 void	free_stack(t_stack **stack);
-void	rotate(t_stack **stack);
-void	reverse_rotate(t_stack **stack);
 void	swap(t_stack **stack);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_b, t_stack **stack_a);
@@ -47,9 +45,12 @@ void	push_b(t_stack **stack_b, t_stack **stack_a);
 //stack_utils
 t_stack	*return_last_node(t_stack *stack);
 int	stack_size(t_stack *stack);
+int	is_stack_sorted(t_stack *stack);
 
 //caller_functions
-void	call_rotate(t_stack *stack, char *op);
-void	call_swap(t_stack *stack, char *op);
+void	call_rotate(t_stack **stack, char *op);
+void	call_swap(t_stack **stack, char *op);
+void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
+void	rotate_both(t_stack **stack_a, t_stack **stack_b);
 
 #endif

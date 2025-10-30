@@ -6,27 +6,27 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/28 16:10:15 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:30:55 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    display_list(t_stack **stack);
-void	teste(t_stack *stack_a, t_stack *stack_b);
+void	display_list(t_stack **stack);
+int	validate_single_arg(char **splited);
+int	validate_mult_args(int argc, char **argv);
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
+	int		i;
+	char	**splited;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc == 2)
 	{
-		char	**splited;
-		int i;
-
 		splited = ft_split(argv[1], 32);
 		i = validate_single_arg(splited);
 		if (i == 0)
@@ -36,31 +36,26 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		i = validate_mult_args(argc, argv);
+		if (i == 0)
+			return (0);
 		fill_stack(argc, argv, &stack_a, 1);
-		display_list(&stack_a);
-		printf("-----------------------\n");
-		teste(stack_a, stack_b);
+		sort_stack(&stack_a, &stack_b);
 		free_stack(&stack_a);
 	}
 }
 
-void	teste(t_stack *stack_a, t_stack *stack_b)
-{
-	push_b(&stack_b, &stack_a);
-	push_b(&stack_b, &stack_a);
-	// call_swap(&stack_b, "sb");
-	is_stack_sorted(stack_b);
-	display_list(&stack_b);
-}
 
 
 int	validate_single_arg(char **splited)
 {
 	int	i;
+
 	i = 0;
 	while (splited[i])
 		i++;
-	if (!is_all_num(i, splited, 0) || !check_doubles(i, splited, 0) || !check_int_max(i, splited, 0))
+	if (!is_all_num(i, splited, 0) || !check_doubles(i, splited, 0)
+		|| !check_int_max(i, splited, 0))
 		return (0);
 	if (is_ordenated(i, splited, 0))
 		return (0);
@@ -77,7 +72,7 @@ int	validate_mult_args(int argc, char **argv)
 	return (1);
 }
 
-void    display_list(t_stack **stack)
+void	display_list(t_stack **stack)
 {
 	int i = 0;
 	t_stack	*tmp;

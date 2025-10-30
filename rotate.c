@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:25:02 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/28 16:00:27 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/30 19:04:04 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate(t_stack **stack)
 		return;
 	t_stack	*last_node;
 	t_stack	*first_node;
-	
+
 	last_node = return_last_node(*stack);
 	first_node = *stack;
 	*stack = first_node->next;
@@ -30,6 +30,8 @@ void	rotate(t_stack **stack)
 
 void	reverse_rotate(t_stack **stack)
 {
+	if (!stack || !*stack || !(*stack)->next)
+		return;
 	t_stack	*last_node;
 	t_stack	*tmp;
 
@@ -63,7 +65,7 @@ void	call_rotate(t_stack **stack, char *op)
 		rotate(stack);
 		ft_putstr_fd("ra\n", 1);
 	}
-	if (!ft_strncmp("rra", op, 2))
+	if (!ft_strncmp("rra", op, 3))
 	{
 		reverse_rotate(stack);
 		ft_putstr_fd("rra\n", 1);
@@ -73,7 +75,7 @@ void	call_rotate(t_stack **stack, char *op)
 		rotate(stack);
 		ft_putstr_fd("rb\n", 1);
 	}
-	if (!ft_strncmp("rrb", op, 2))
+	if (!ft_strncmp("rrb", op, 3))
 	{
 		reverse_rotate(stack);
 		ft_putstr_fd("rrb\n", 1);

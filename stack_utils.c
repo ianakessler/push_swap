@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:22:31 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/28 15:15:18 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/30 18:31:21 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,68 @@ t_stack	*return_last_node(t_stack *stack)
 
 int	stack_size(t_stack *stack)
 {
-	t_stack	*tmp;
 	int		i;
 
-	tmp = stack;
+	if (!stack)
+		return (0);
 	i = 0;
-	while (tmp)
+	while (stack)
 	{
-		tmp = tmp->next;
+		stack = stack->next;
 		i++;
 	}
 	return (i);
 }
 
-int	is_stack_sorted(t_stack *stack)
+bool	stack_sorted(t_stack *stack)
 {
-	while (stack && stack->next)
+	if (!stack)
+		return (1);
+	while (stack->next)
 	{
-		if (stack->value < stack->next->value) // comparação invertida
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
+
+t_stack	*find_max_value(t_stack *stack)
+{
+	int			max;
+	t_stack		*max_node;
+
+	if (!stack)
+		return (NULL);
+	max = INT_MIN;
+	while (stack)
+	{
+		if (stack->value > max)
 		{
-			printf("not sorted\n");
-			return (0);
+			max = stack->value;
+			max_node = stack;
 		}
 		stack = stack->next;
 	}
-	printf("sorted\n");
-	return (1);
+	return (max_node);
+}
+
+t_stack	*find_min_value(t_stack *stack)
+{
+	int			min;
+	t_stack		*min_node;
+
+	if (!stack)
+		return (NULL);
+	min = INT_MAX;
+	while (stack)
+	{
+		if (stack->value < min)
+		{
+			min = stack->value;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node);
 }

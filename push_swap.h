@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:56:49 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/30 18:30:15 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/04 19:52:21 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ typedef struct s_stack
 {
 	int						value;
 	int						index;
-	int						push_cost;
-	bool					above_median;
-	bool					cheapest;
-	struct s_stack			*target_node;
     struct s_stack			*next;
     struct s_stack			*prev;
 
@@ -51,20 +47,14 @@ int			stack_size(t_stack *stack);
 bool		stack_sorted(t_stack *stack);
 t_stack		*find_max_value(t_stack *stack);
 t_stack		*find_min_value(t_stack *stack);
-t_stack		*get_cheapest(t_stack *stack);
-void		rotate_both_cheap(t_stack **a, t_stack **b, t_stack *cheapest_node);
-void		reverse_rotate_both_cheap(t_stack **a, t_stack **b, t_stack *cheapest_node);
-void		prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
-void		init_nodes_a(t_stack *a, t_stack *b);
-void		init_nodes_b(t_stack *a, t_stack *b);
 void		sort_three(t_stack **stack);
 
 
 
 //algorithm_utils
-void		current_index(t_stack *stack);
-void	sort_stack(t_stack **a, t_stack **b);
 
+void	init_index(t_stack *a);
+void	radix_sort(t_stack **a, t_stack **b, int i, int j);
 
 //caller_functions
 void		call_rotate(t_stack **stack, char *op);
@@ -73,6 +63,6 @@ void		reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 void		rotate_both(t_stack **stack_a, t_stack **stack_b);
 
 //sorting
-void		sort_short_stack(t_stack **stack, int size);
+
 
 #endif

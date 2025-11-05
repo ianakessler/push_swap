@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:59:03 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/30 18:30:55 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/04 20:21:45 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	main(int argc, char **argv)
 		if (i == 0)
 			return (0);
 		fill_stack(argc, argv, &stack_a, 1);
-		sort_stack(&stack_a, &stack_b);
+		init_index(stack_a);
+		radix_sort(&stack_a, &stack_b, 0, 0);
 		free_stack(&stack_a);
 	}
 }
@@ -67,6 +68,7 @@ int	validate_mult_args(int argc, char **argv)
 	if (!is_all_num(argc, argv, 1) || !check_doubles(argc, argv, 1)
 		|| !check_int_max(argc, argv, 1))
 		return (0);
+
 	if (is_ordenated(argc, argv, 1))
 		return (0);
 	return (1);
@@ -83,6 +85,7 @@ void	display_list(t_stack **stack)
 		printf("Nó %d:\n", i);
 		printf("\tEndereço do nó: %p\n", (void *)tmp);
 		printf("\tValor (value):  %i\n", tmp->value);
+		printf("\tIndex: %i\n", tmp->index);
 		printf("\tAponta para (next): %p\n", (void *)tmp->next);
 		printf("\tAponta para (prev): %p\n", (void *)tmp->prev);
 		printf("--------------------------\n");

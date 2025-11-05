@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:29:56 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/22 14:17:44 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/04 18:28:44 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_stack	*create_node(int number)
 	node->value = number;
 	node->next = NULL;
 	node->prev = NULL;
+	node->index = -1;
 	return (node);
 }
 

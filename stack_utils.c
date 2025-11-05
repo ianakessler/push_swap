@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:22:31 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/30 18:31:21 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/30 19:36:22 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	stack_size(t_stack *stack)
 bool	stack_sorted(t_stack *stack)
 {
 	if (!stack)
-		return (1);
+		return (NULL);
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
@@ -60,6 +60,7 @@ t_stack	*find_max_value(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	max = INT_MIN;
+	max_node = stack;
 	while (stack)
 	{
 		if (stack->value > max)
@@ -80,6 +81,7 @@ t_stack	*find_min_value(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	min = INT_MAX;
+	min_node = stack;
 	while (stack)
 	{
 		if (stack->value < min)

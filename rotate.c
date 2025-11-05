@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:25:02 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/30 19:04:04 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/10/30 20:23:01 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,24 @@ void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
 
 void	call_rotate(t_stack **stack, char *op)
 {
-	if (!ft_strncmp("ra", op, 2))
-	{
-		rotate(stack);
-		ft_putstr_fd("ra\n", 1);
-	}
-	if (!ft_strncmp("rra", op, 3))
+	if (!ft_strncmp(op, "rra", 4))
 	{
 		reverse_rotate(stack);
 		ft_putstr_fd("rra\n", 1);
 	}
-	if (!ft_strncmp("rb", op, 2))
+	else if (!ft_strncmp(op, "ra", 3))
 	{
 		rotate(stack);
-		ft_putstr_fd("rb\n", 1);
+		ft_putstr_fd("ra\n", 1);
 	}
-	if (!ft_strncmp("rrb", op, 3))
+	else if (!ft_strncmp(op, "rrb", 4))
 	{
 		reverse_rotate(stack);
 		ft_putstr_fd("rrb\n", 1);
+	}
+	else if (!ft_strncmp(op, "rb", 3))
+	{
+		rotate(stack);
+		ft_putstr_fd("rb\n", 1);
 	}
 }

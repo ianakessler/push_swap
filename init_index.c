@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 16:33:27 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/06 16:18:32 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:35:54 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	init_index(t_stack *a)
 
 static t_stack	*find_min_node(t_stack *a)
 {
-	t_stack *min_node;
-	t_stack *current;
+	t_stack	*min_node;
+	t_stack	*current;
 
 	min_node = find_no_index_node(a);
 	if (!min_node)

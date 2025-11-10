@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:18:46 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/06 17:24:11 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:42:02 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push_a(t_stack **stack_a, t_stack **stack_b)
 	old_first_a = *stack_a;
 	first_b->next = *stack_a;
 	*stack_a = first_b;
-	if(old_first_a)
+	if (old_first_a)
 		old_first_a->prev = first_b;
 	ft_putstr_fd("pa\n", 1);
 }

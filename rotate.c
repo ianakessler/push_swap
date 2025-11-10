@@ -6,19 +6,19 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:25:02 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/30 20:23:01 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:46:04 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack **stack)
+static void	rotate(t_stack **stack)
 {
-	if (!stack || !*stack || !(*stack)->next)
-		return;
 	t_stack	*last_node;
 	t_stack	*first_node;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	last_node = return_last_node(*stack);
 	first_node = *stack;
 	*stack = first_node->next;
@@ -28,13 +28,13 @@ void	rotate(t_stack **stack)
 	(*stack)->prev = NULL;
 }
 
-void	reverse_rotate(t_stack **stack)
+static void	reverse_rotate(t_stack **stack)
 {
-	if (!stack || !*stack || !(*stack)->next)
-		return;
 	t_stack	*last_node;
 	t_stack	*tmp;
 
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	last_node = return_last_node(*stack);
 	tmp = last_node->prev;
 	tmp->next = NULL;

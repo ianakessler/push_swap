@@ -6,14 +6,14 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:29:56 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/06 18:28:51 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:35:23 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static t_stack	*create_node(int number);
-static void	add_node_front(t_stack *node, t_stack **stack);
+static void		add_node_front(t_stack *node, t_stack **stack);
 
 void	fill_mult_args_stack(int i, char **args, t_stack **stack)
 {

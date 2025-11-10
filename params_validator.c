@@ -6,13 +6,13 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/10 16:48:56 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:47:14 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_all_digit(char	*arg);
+static int	is_all_digit(char	*arg);
 
 int	is_all_num(int argc, char **argv, int s)
 {
@@ -78,7 +78,7 @@ int	check_int_max(int argc, char **argv, int s)
 	return (1);
 }
 
-int	is_all_digit(char	*arg)
+static int	is_all_digit(char	*arg)
 {
 	int	i;
 

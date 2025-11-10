@@ -6,15 +6,15 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 16:42:24 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/10 16:30:51 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:44:36 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack **stack);
-static int	find_min_pos(t_stack *a);
-void	sort_short_stack(t_stack **a, t_stack **b);
+static void		sort_three(t_stack **stack);
+static int		find_min_pos(t_stack *a);
+static void		sort_short_stack(t_stack **a, t_stack **b);
 
 void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
@@ -25,7 +25,7 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 		return ;
 	if (size == 2)
 		call_swap(stack_a, "sa");
-	else if(size == 3)
+	else if (size == 3)
 		sort_three(stack_a);
 	else if (size == 4 || size == 5)
 		sort_short_stack(stack_a, stack_b);
@@ -36,7 +36,7 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	sort_three(t_stack **stack)
+static void	sort_three(t_stack **stack)
 {
 	int	first;
 	int	second;
@@ -61,10 +61,9 @@ void	sort_three(t_stack **stack)
 		call_swap(stack, "sa");
 		call_rotate(stack, "rra");
 	}
-
 }
 
-void	sort_short_stack(t_stack **a, t_stack **b)
+static void	sort_short_stack(t_stack **a, t_stack **b)
 {
 	int	size;
 	int	min_pos;

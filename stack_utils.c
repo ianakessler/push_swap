@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 18:22:31 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/06 17:24:35 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 17:44:51 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,3 @@ bool	stack_sorted(t_stack *stack)
 	}
 	return (true);
 }
-

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/11/06 19:33:55 by iaratang          #+#    #+#              #
+#    Updated: 2025/11/06 19:33:59 by iaratang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # --- NOME DO EXECUTÁVEL ---
 NAME = push_swap
 
@@ -11,13 +23,13 @@ RM = rm -f
 SRCS =	push_swap.c\
 		params_validator.c\
 		fill_stack.c\
-		free_stack.c\
 		stack_utils.c\
 		rotate.c\
 		swap.c\
 		push.c\
-		teste.c\
+		init_index.c\
 		radix_sort.c\
+		sort_stacks.c\
 
 # Correção 1: Removido o espaço na conversão de .c para .o
 OBJS = $(SRCS:.c=.o)

@@ -6,41 +6,48 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 20:29:56 by iaratang          #+#    #+#             */
-/*   Updated: 2025/11/04 18:28:44 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/06 18:28:51 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	add_node_front(t_stack *node, t_stack **stack);
-t_stack	*create_node(int number);
+static t_stack	*create_node(int number);
+static void	add_node_front(t_stack *node, t_stack **stack);
 
-void	fill_stack(int argc, char	**argv, t_stack **stack, int s)
+void	fill_mult_args_stack(int i, char **args, t_stack **stack)
 {
-	int		i;
-	int		current_value;
 	t_stack	*node;
+	int		current_value;
+	int		k;
 
-	if (s == 0)
+	k = i - 1;
+	while (k >= 1)
 	{
-		i = argc -1;
-	}
-	if (s == 1)
-	{
-		i = argc -1;
-		s--;
-	}
-	while (i > s)
-	{
-		current_value = ft_atoi(argv[i]);
+		current_value = ft_atoi(args[k]);
 		node = create_node(current_value);
 		add_node_front(node, stack);
-		i--;
+		k--;
 	}
-
 }
 
-t_stack	*create_node(int number)
+void	fill_single_arg_stack(int i, char **args, t_stack **stack)
+{
+	t_stack	*node;
+	int		curren_value;
+	int		k;
+
+	k = i - 1;
+	while (k >= 0)
+	{
+		curren_value = ft_atoi(args[k]);
+		node = create_node(curren_value);
+		add_node_front(node, stack);
+		k--;
+	}
+}
+
+static t_stack	*create_node(int number)
 {
 	t_stack	*node;
 
@@ -54,7 +61,7 @@ t_stack	*create_node(int number)
 	return (node);
 }
 
-void	add_node_front(t_stack *node, t_stack **stack)
+static void	add_node_front(t_stack *node, t_stack **stack)
 {
 	if (!node || !stack)
 		return ;
@@ -62,4 +69,18 @@ void	add_node_front(t_stack *node, t_stack **stack)
 	if (*stack != NULL)
 		(*stack)->prev = node;
 	*stack = node;
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	free(*stack);
+	*stack = NULL;
 }

@@ -6,13 +6,12 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 18:18:46 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/30 19:56:27 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/06 17:24:11 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// Pega o primeiro elemento no topo de b e o coloca no topo de a.
-// Não faz nada se b estiver vazia
+
 void	push_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*old_first_a;

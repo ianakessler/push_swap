@@ -6,7 +6,7 @@
 /*   By: iaratang <iaratang@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 17:09:58 by iaratang          #+#    #+#             */
-/*   Updated: 2025/10/16 19:18:02 by iaratang         ###   ########.fr       */
+/*   Updated: 2025/11/10 16:48:56 by iaratang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,22 +98,17 @@ int	is_all_digit(char	*arg)
 	return (1);
 }
 
-int	is_ordenated(int argc, char **argv, int s)
+int	is_empty(char *argv)
 {
 	int	i;
-	int	sorted;
 
-	sorted = 1;
-	i = s;
-	while (i < argc - 1)
+	i = 0;
+	while (argv[i])
 	{
-		if (ft_atoi(argv[i]) > ft_atoi(argv[i + 1]))
-		{
-			sorted = 0;
-		}
+		if (argv[i] != 32)
+			return (0);
 		i++;
 	}
-	if (sorted)
-		ft_putstr_fd("Sorted", 2);
-	return (sorted);
+	ft_putstr_fd("Error\n", 2);
+	return (1);
 }
